@@ -1,5 +1,7 @@
 package classes.sistema;
 
+import java.util.ArrayList;
+
 public class Aluno {
 	
 	private String nome;
@@ -9,10 +11,9 @@ public class Aluno {
 	private String email;
 	private String telefone;
 	private Curso curso;
-	private Disciplina disciplinas;
+	ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
 
  
-
  public Aluno() {}
  public Aluno(String nome, String cpf, String matricula, String endereco, String email, String telefone) {
 	super();
@@ -58,6 +59,17 @@ public String getTelefone() {
 }
 public void setTelefone(String telefone) {
 	this.telefone = telefone;
+}
+@Override
+public String toString() {
+	return  "================ ALUNO ================"
+		     + "\nNome do aluno: " + nome
+		     + ",\nCPF do aluno: " + cpf 
+	         + ",\nMatrícula: " + matricula
+	         + ",\nEndereço: " + endereco
+	         + ",\nEmail: " + email
+	         + ",\nTelefone: " + telefone
+	         + "\n=======================================";
 } 
  
 

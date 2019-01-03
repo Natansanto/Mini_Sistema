@@ -1,7 +1,7 @@
 package sistema;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import service.*;
 import classes.sistema.*;
 
 public class SistemaMain {
@@ -11,16 +11,9 @@ public class SistemaMain {
 		Scanner teclado = new Scanner(System.in);
 		Scanner inAluno = new Scanner(System.in);
 		
-		Aluno aluno = new Aluno();
-		Professor professor = new Professor();
-		Curso curso = new Curso();
-		
-		
-		ArrayList<Aluno> alunos = new ArrayList<Aluno>();
-		ArrayList<Professor> professores = new ArrayList<Professor>();
-		ArrayList<Curso> cursos = new ArrayList<Curso>();
-		
-		String excluirMatricula;
+	    AlunoService aluno  = new AlunoService();
+
+	    // Atributos
 	    boolean x = true;
 	    int opcao = -1;
 	    int opsAluno = -1;
@@ -48,53 +41,41 @@ public class SistemaMain {
 	    		   if(opsAluno == 1) { 
 	    			   System.out.println("================ CADASTRAR ================");
 	    			   System.out.println("Digite o nome do aluno: ");
-	    			   aluno.setNome(inAluno.nextLine()); 
+	    			   String nome = inAluno.nextLine();
 	    			   System.out.println("Informe o cpf do aluno: ");
-	    			   aluno.setCpf(inAluno.nextLine());
+	    			   String cpf = inAluno.nextLine();
 	    			   System.out.println("Informe a matrícula do aluno: ");
 	                   System.out.println("Código do curso + 4 últimos dígitos do cpf + o ano corrente: ");
-	    			   aluno.setMatricula(inAluno.nextLine());
+	                   String matricula = inAluno.nextLine();
 	    			   System.out.println("Informe o o endereço do aluno: ");
-	    			   aluno.setEndereco(inAluno.nextLine());
+	    			   String endereco = inAluno.nextLine();
 	    			   System.out.println("Informe o telefone do aluno: ");
-	    			   aluno.setTelefone(inAluno.nextLine());
+	    			   String telefone = inAluno.nextLine();
 	    			   System.out.println("Informe o email do aluno: ");
-	    			   aluno.setEmail(inAluno.nextLine());
+	    			   String email = inAluno.nextLine();
 	    			   System.out.println("Aluno cadastrado com sucesso. "); 
 	    			   
-	    			   alunos.add(aluno);
+	    			   aluno.addAluno(nome,cpf,matricula,endereco,email,telefone);
 	    			   break;
 	    		 	
 	    		   }else if(opsAluno == 2) {
-	    			   System.out.println("\n=========== LISTA DE ALUNOS  ===========");
-	    			   for(Aluno a: alunos) {
-	    				  System.out.println(a);
-	    			  }
-	    			   System.out.println("Total de alunos cadastros: " + alunos.size());
-	    			   
-	    			   break;
-	    			 }else if(opsAluno == 3) {
-	    				 System.out.println("================ EDITAR ================");
-	    				 
-	    				 
-	    				 
-	    				 
-	    			 }else if(opsAluno == 4) {
-	    				 System.out.println("================ EXCLUIR ================");
+	    			  aluno.listAluno();
+	    			  break; 
+	    			      
+	    		   }else if(opsAluno == 3) {
+	    			   System.out.println("Digite a matrícula do aluno :" );
+	    			   Aluno a = aluno.buscarAluno(teclado.next());
+	    			   System.out.println("Digite o novo nome do aluno: ");
+					   aluno.editarAluno(a, inAluno.nextLine());
+	   	    		   a.toString();
+	   	    		   System.out.println("Alteraçoes feitas com sucesso: ");
+	    			   break; 
+	    		  
+	    		   }else if(opsAluno == 4) {
 	    				 System.out.println("Digite a matrícula do aluno :" );
-	    				 	 excluirMatricula = teclado.next();	
-	    				 for(Aluno a: alunos) {
-	    					if(excluirMatricula.equals(a.getMatricula())) {
-	    						alunos.remove(a);
-	    						System.out.println("Aluno excluído com sucesso: ");
-	    						break;
-	    						}else {
-	    							System.out.println("Matrícula não encontrada: ");
-	    						}
-	    					
-	    					}
-	    				 
-	    				 
+	    			 	 String excluir = teclado.next();	
+	    				 aluno.excluirAluno(excluir);
+	    				 break;
 	    		   }
 	    		  
 	    	 case 2:

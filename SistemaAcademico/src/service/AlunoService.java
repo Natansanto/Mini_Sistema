@@ -2,7 +2,7 @@ package service;
 
 import java.util.ArrayList;
 
-import classes.sistema.Aluno;
+import modelo.Aluno;
 
 public class AlunoService {
   ArrayList<Aluno> alunos = new ArrayList<Aluno>();

@@ -1,8 +1,9 @@
 package sistema;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import modelo.*;
 import service.*;
-import classes.sistema.*;
 
 public class SistemaMain {
 	
@@ -12,33 +13,45 @@ public class SistemaMain {
 		Scanner inAluno = new Scanner(System.in);
 		
 	    AlunoService aluno  = new AlunoService();
+	    ProfessorService professor = new ProfessorService();
 
 	    // Atributos
-	    boolean x = true;
+	    boolean trueMenu = true;
+	    boolean trueAluno = true;
+	    boolean trueProfessor = true;
+	    boolean trueCurso = true;
 	    int opcao = -1;
 	    int opsAluno = -1;
+	    int opsProfessor = -1;
 	 
 	   	
 		
-	    while(x) {
+	    while(trueMenu) {
 	     System.out.println("------------------------------");
 	     System.out.println("SISTEMA ACADÊMICO ");	
 	     System.out.println("Encerrar[0] Aluno[1] Professor[2] Curso[3] ");
 	     opcao = teclado.nextInt();
-	    
 	     
 	     switch(opcao){
 	    	 case 0: 
 	    		  System.out.println("Sistema encerrado!");
-	    		  x = false;
+	    		  trueMenu = false;
 	    		  break;
 	    	 
 	    	 case 1:
+	    		   trueAluno = true; 
+	    		   while(trueAluno) {
 	    		   System.out.println("Escolha uma opção para aluno: ");  
 	    		   System.out.println("Cadastrar aluno[1] Listagem de alunos[2] Edição de aluno[3] Exclusão de aluno[4]");
 	    		   opsAluno = teclado.nextInt();
 	    		 	
-	    		   if(opsAluno == 1) { 
+	    		   switch(opsAluno) {
+	    		   case 0: 
+	 	    		  System.out.println("Saindo do menu aluno ! ");
+	 	    		  trueAluno = false;
+	 	    		  break;
+	 	    	 
+	    		   case 1:
 	    			   System.out.println("================ CADASTRAR ================");
 	    			   System.out.println("Digite o nome do aluno: ");
 	    			   String nome = inAluno.nextLine();
@@ -58,11 +71,11 @@ public class SistemaMain {
 	    			   aluno.addAluno(nome,cpf,matricula,endereco,email,telefone);
 	    			   break;
 	    		 	
-	    		   }else if(opsAluno == 2) {
+	    		   case 2:
 	    			  aluno.listAluno();
 	    			  break; 
 	    			      
-	    		   }else if(opsAluno == 3) {
+	    		   case 3: 
 	    			   System.out.println("Digite a matrícula do aluno :" );
 	    			   Aluno a = aluno.buscarAluno(teclado.next());
 	    			   System.out.println("Digite o novo nome do aluno: ");
@@ -71,44 +84,30 @@ public class SistemaMain {
 	   	    		   System.out.println("Alteraçoes feitas com sucesso: ");
 	    			   break; 
 	    		  
-	    		   }else if(opsAluno == 4) {
+	    		   case 4:
 	    				 System.out.println("Digite a matrícula do aluno :" );
 	    			 	 String excluir = teclado.next();	
 	    				 aluno.excluirAluno(excluir);
 	    				 break;
-	    		   }
-	    		  
+		 /*switch aluno*/ }  
+	     }
+	    		   
 	    	 case 2:
-	    		   
-	    		   
+	    		 
 	    		   
 	    		
 	     
 	     
 	     
 	     
-	     /*switch*/ }
-	     
-                     
-	    			   
-	    		   
-	    		 
-	    	 
-	    
-	    	
-	    	
-	    	
-	    	
-	    	
-	    	
-	    }
+	     /*switch menu*/ }
+         }
 	    
 	    
 	    
-	    }   
-	    
-	    
-		
+	   
 	
+	}   
+	    	
 
 }

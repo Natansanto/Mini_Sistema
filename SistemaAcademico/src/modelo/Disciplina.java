@@ -1,4 +1,4 @@
-package classes.sistema;
+package modelo;
 
 public class Disciplina {
 

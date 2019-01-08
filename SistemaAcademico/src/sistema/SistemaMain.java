@@ -27,6 +27,7 @@ public class SistemaMain {
 	   	
 		
 	    while(trueMenu) {
+	     trueAluno = true; 
 	     System.out.println("------------------------------");
 	     System.out.println("SISTEMA ACADÊMICO ");	
 	     System.out.println("Encerrar[0] Aluno[1] Professor[2] Curso[3] ");
@@ -39,10 +40,10 @@ public class SistemaMain {
 	    		  break;
 	    	 
 	    	 case 1:
-	    		   trueAluno = true; 
 	    		   while(trueAluno) {
 	    		   System.out.println("Escolha uma opção para aluno: ");  
 	    		   System.out.println("Cadastrar aluno[1] Listagem de alunos[2] Edição de aluno[3] Exclusão de aluno[4]");
+	    		   System.out.println("Voltar para o menu inicial[0]");
 	    		   opsAluno = teclado.nextInt();
 	    		 	
 	    		   switch(opsAluno) {
@@ -93,10 +94,56 @@ public class SistemaMain {
 	     }
 	    		   
 	    	 case 2:
-	    		 
-	    		   
+	    		 while(trueProfessor) {
+	    		 System.out.println("Escolha uma opção para professor: ");                  
+	             System.out.println("Cadastro professor[1] Listagem de professores[2] Edição de professores[3] Exclusão de professores[4]");
+	             System.out.println("Voltar para o menu inicial[0]");
+	             opsProfessor = teclado.nextInt();
+	              
+	             switch(opsProfessor) {
+	             case 0: 
+	 	    		  System.out.println("Saindo do menu professor ! ");
+	 	    		  trueProfessor = false;
+	 	    		  break;
+	            
+	             case 1:
+	             System.out.println("Informe o nome do professor: ");
+                 String nome = teclado.next();
+                 System.out.println("Informe o cpf do professor: ");
+                 String cpf = teclado.next();
+                 System.out.println("Informe o  endereço do professor: ");
+                 String endereco = teclado.next();  
+                 System.out.println("Informe o email do professor: ");
+                 String email= teclado.next();             
+                 System.out.println("Informe o telefone do professor: ");
+                 String telefone = teclado.next();
+                 System.out.println("Informe a categoria do professor: ");
+                 System.out.println("[Especialista] [Mestre] [Doutor] ");
+                 String categoria = teclado.next(); 
+                 System.out.println("Professor cadastrado com sucesso. ");    
 	    		
+	             professor.addProfessor(nome, cpf, endereco, email, telefone, categoria);
+	             break; 
+	             
+	             case 2:
+	            	 professor.listProfessores();
+	            	 break;
+	            	 
+	            	 
+	             case 3:
+	            	 
+	             
+	            	 
+	             case 4: 
+	            	 System.out.println("Digite o cpf do professor: ");
+	            	 String excluirCpf = teclado.next();
+	            	 professor.excluirProfessor(excluirCpf);
+	            	 break;
+	            	 
+	     /*switch professor*/ }
+	     }
 	     
+	    
 	     
 	     
 	     

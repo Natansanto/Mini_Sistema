@@ -60,4 +60,20 @@ public class Professor {
 		this.categoria = categoria;
 	}
 	
+	@Override
+	public String toString() {
+		return "================ PROFESSOR ================"
+				+ "\nNome: = " + nome 
+				+ ",\nCpf: = " + cpf 
+				+ ",\nEndereco: = " + endereco 
+				+ ",\nEmail: = " + email
+				+ ",\nTelefone: = " + telefone 
+				+ ",\nCategoria: = " + categoria 
+				+ ",\nDisciplina administrada pelo professor: = " + disciplina
+		        + "\n=======================================";
+	}
+	
+	
+	
+	
 }	

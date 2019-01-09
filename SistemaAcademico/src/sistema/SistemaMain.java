@@ -14,6 +14,7 @@ public class SistemaMain {
 		
 	    AlunoService aluno  = new AlunoService();
 	    ProfessorService professor = new ProfessorService();
+	    CursoService  curso = new CursoService();
 
 	    // Atributos
 	    boolean trueMenu = true;
@@ -143,7 +144,42 @@ public class SistemaMain {
 	     /*switch professor*/ }
 	     }
 	     
-	    
+	    	 case 3:
+	    		 System.out.println("Escolha uma opção para curso\n");
+				 System.out.println("1 - Cadastrar curso");
+				 System.out.println("2 - Listagem de cursos");
+				 System.out.println("3 - Editar curso");
+				 System.out.println("4 - Excluir curso");
+				 System.out.println("0 - Votar ao menu inicial");
+	    		 opsProfessor = teclado.nextInt();
+	    		 
+	    		 switch(opsProfessor) {
+	    		 case 1:
+	    			 System.out.println("Digite o nome do curso: ");
+                	 String nome = teclado.next(); 
+                	 System.out.println("Digite o código do curso, número de 4 dígitos: ");
+                	 String codigo = teclado.next(); 
+                	 System.out.println("Digite o turno do curso: ");
+                	 System.out.println("[Manhã] [Tarde] [Noite] "); 	 
+                	 String turno = teclado.next(); 
+                	 System.out.println("Digite o professor coordenador: ");
+                	 String nomeProf  = teclado.next(); 
+                	 System.out.println("Curso cadastrado com sucesso. "); 
+                	 
+                	 curso.addCurso(nome, codigo, turno, nomeProf);
+                	 break;
+	    		 
+	    		 case 2: 
+	    			 curso.listCurso();
+	    			 break;
+	    		 
+	    		 
+	    		 case 3:
+	    			 
+	    			 System.out.println("Digite o código do curso: ");
+	    			 
+	    		 
+	    		 }
 	     
 	     
 	     

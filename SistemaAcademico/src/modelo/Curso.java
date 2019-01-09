@@ -1,11 +1,14 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class Curso {
 
 	private String nome;
 	private String codigo;
 	private String turno;
 	private String ProfessorCoordenador;
+	ArrayList<Disciplina> grade = new ArrayList<Disciplina>();
 	
 	
 	public Curso() {}
@@ -41,6 +44,20 @@ public class Curso {
 	public void setProfessorCoordenador(String professorCoordenador) {
 		ProfessorCoordenador = professorCoordenador;
 	}
+	
+	@Override
+	public String toString() {
+		return "================ CURSO ================"
+				+ "\nNome: = " + nome 
+				+ ",\nCodigo: = " + codigo 
+				+ ",\nTurno: = " + turno 
+				+ ",\nProfessorCoordenador: = " + ProfessorCoordenador 
+				+ ",\nLista de disciplinas: = " + grade
+		        + "\n=======================================";
+	}
+	
+	
+	
 	
 
 }

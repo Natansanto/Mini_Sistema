@@ -10,6 +10,7 @@ public class Aluno {
 	private String endereco;
 	private String email;
 	private String telefone;
+	private String situacao;
 	private Curso curso;
 	ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
 
@@ -24,6 +25,15 @@ public class Aluno {
 	this.email = email;
 	this.telefone = telefone;
 }
+ 
+public String getsituacao() {
+	return situacao;
+}
+
+public void setSituacao(String situacao) {
+	this.situacao = situacao;
+}
+
 public String getNome() {
 	return nome;
 }

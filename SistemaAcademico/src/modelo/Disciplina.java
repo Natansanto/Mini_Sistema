@@ -6,7 +6,7 @@ public class Disciplina {
 	private String codigo;
 	private String sala;
 	private String cargaHoraria;
-	private String Horario;
+	private String horario;
 	private String custo;
 	private Professor professor;
 	
@@ -18,7 +18,7 @@ public class Disciplina {
 		this.codigo = codigo;
 		this.sala = sala;
 		this.cargaHoraria = cargaHoraria;
-		Horario = horario;
+		this.horario = horario;
 		this.custo = custo;
 	}
 	public String getNome() {
@@ -46,16 +46,37 @@ public class Disciplina {
 		this.cargaHoraria = cargaHoraria;
 	}
 	public String getHorario() {
-		return Horario;
+		return horario;
 	}
 	public void setHorario(String horario) {
-		Horario = horario;
+		this.horario = horario;
 	}
 	public String getCusto() {
 		return custo;
 	}
 	public void setCusto(String custo) {
 		this.custo = custo;
+	}
+	
+	
+	public void custo() {
+		
+		
+	}
+	
+
+	@Override
+	public String toString() {
+		return  "================ DISCIPLINA ================"
+				+ "\nNome=" + nome 
+				+ ",\nCodigo=" + codigo 
+				+ ",\nSala=" + sala 
+				+ ",\nCargaHoraria=" + cargaHoraria
+				+ ",\nHorario=" + horario 
+				+ ",\nCusto=" + custo 
+				+ ",\nProfessor=" + professor
+	            + "\n=======================================";
+	
 	}
 	
 	

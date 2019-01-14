@@ -41,7 +41,6 @@ public class ProfessorService {
 	
 		
 	public void excluirProfessor(String excluirCpf) {
-		System.out.println("================ EXCLUIR ================");
 		Professor p = buscarProfessor(excluirCpf);
 		if(professores.remove(p) == true) {
 			 System.out.println("Professor excluído com sucesso: ");

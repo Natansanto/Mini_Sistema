@@ -2,6 +2,7 @@ package service;
 import java.util.ArrayList;
 
 import modelo.Curso;
+import modelo.Disciplina;
 
 public class CursoService {
 
@@ -22,8 +23,9 @@ public class CursoService {
 		for(Curso c: cursos) {
 			System.out.println(c);
 		}
-		
+			
 		System.out.println("Total de cursos cadastrados: " + cursos.size());
+		
 	}
 	
 	

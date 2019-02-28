@@ -29,27 +29,45 @@ public class AlunoService {
 	
 	
 	public void editarAluno(Aluno novo, String nome) {
-		  novo.setNome(nome);
-		  
-		  
-		  
-		  
+		  novo.setNome(nome);	  
 		}
+	
+	public void editarAlunoCpf(Aluno novo, String cpf) {
+		novo.setCpf(cpf);	
+	}
+	
+	public void editarAlunoMatri(Aluno novo, String matricula) {
+		novo.setMatricula(matricula);
+	}
+	
+	public void editarAlunoEnde(Aluno novo, String endereco) {
+		novo.setEndereco(endereco);
+	}
+	
+	public void editarAlunoEmail(Aluno novo, String email) {
+		novo.setEmail(email);
+		
+	}
+	
+	public void editarAlunoTel(Aluno novo, String telefone) {
+		novo.setTelefone(telefone);
+		
+	}
+	
+	
 	
 	
 	public Aluno buscarAluno(String matricula) {
 		 for(Aluno a: alunos ) {
 				if(a.getMatricula().equals(matricula)) {
-					return a;
-				
+					return a;		
 		}
-	    System.out.println("Matrícula do aluno não encontrada: ");		
-	}    
 	
-	 return null;
-   		
+		 }return null;
+	   	
  }
 	
+
 	public void excluirAluno(String excluirMatricula) {
 		System.out.println("================ EXCLUIR ================");
 		 Aluno a = buscarAluno(excluirMatricula);

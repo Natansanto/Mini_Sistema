@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.List;
 import java.util.ArrayList;
 
 public class Curso {
@@ -8,18 +9,30 @@ public class Curso {
 	private String codigo;
 	private String turno;
 	private String ProfessorCoordenador;
-	ArrayList<Disciplina> grade = new ArrayList<Disciplina>();
+	private Disciplina[] disciplina;
+	private List<Disciplina> grade = new ArrayList();
 	
 	
 	public Curso() {}
 	public Curso(String nome, String codigo, String turno, String professorCoordenador) {
 		super();
+		//this.disciplina = new Disciplina[10];
 		this.nome = nome;
 		this.codigo = codigo;
 		this.turno = turno;
 		ProfessorCoordenador = professorCoordenador;
 	}
 	
+	
+	
+
+	
+	public List<Disciplina> getGrade() {
+		return grade;
+	}
+	public void setGrade(List<Disciplina> grade) {
+		this.grade = grade;
+	}
 	public String getNome() {
 		return nome;
 	}

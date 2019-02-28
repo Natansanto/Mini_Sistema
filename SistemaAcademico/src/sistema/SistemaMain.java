@@ -14,6 +14,15 @@ public class SistemaMain {
 	    AlunoService aluno  = new AlunoService();
 	    ProfessorService professor = new ProfessorService();
 	    CursoService  curso = new CursoService();
+	   
+	    Disciplina[] disciplinas = null;
+	    
+	    disciplinas = new Disciplina[10];
+	  
+	    disciplinas[0] = new Disciplina("11","11","11","11","11","11");
+	    disciplinas[2] = new Disciplina("11","11","11","11","11","11");
+	   
+	              
 	    
 	    boolean trueMenu = true;
 	    int opcao = -1;
@@ -31,6 +40,7 @@ public class SistemaMain {
 	     int opsAluno = -1;
 	     int opsCurso = -1;
 	     int opsProfessor = -1;
+	     int opsEditarAluno = -1;
 	     
 	     switch(opcao){
 	    	 case 0: 
@@ -73,15 +83,68 @@ public class SistemaMain {
 	    			  aluno.listAluno();
 	    			  break; 
 	    			      
-	    		   case 3: 
-	    			   System.out.println("Digite a matrícula do aluno :" );
-	    			   Aluno a = aluno.buscarAluno(teclado.next());
+	    		   case 3:   
+	    				 System.out.println("Digite a matrícula do aluno :" );
+		    			   Aluno a = aluno.buscarAluno(teclado.next());
+		    			   if(a == null) {
+		    			   System.out.println("Matrícula do aluno não encontrada! ");	
+		    				   break;
+		    				   
+		    			   }else {
+		    		     while(opsEditarAluno !=0) {
+	    				 System.out.println("Escolha o que deseja editar :\n");
+		  				 System.out.println("1 - Editar nome do aluno:");
+		  				 System.out.println("2 - Editar cpf do aluno:");
+		  				 System.out.println("3 - Editar matrícula do aluno:");
+		  				 System.out.println("4 - Editar endereço do aluno:");
+		  				 System.out.println("5 - Editar email do aluno:");
+		  				 System.out.println("6 - Editar telefone do aluno:");
+		  				 System.out.println("0 - Votar ao menu inicial:");
+		  				 opsEditarAluno = teclado.nextInt();
+		  				 
+		  				 
+					switch(opsEditarAluno){  
+	    			   case 1:
 	    			   System.out.println("Digite o novo nome do aluno: ");
 					   aluno.editarAluno(a, teclado.next());
-	   	    		   a.toString();
-	   	    		   System.out.println("Alteraçoes feitas com sucesso: ");
+	   	    		   System.out.println("Alteração feita com sucesso! ");
 	    			   break; 
-	    		  
+	    			   
+	    			   case 2:
+	    			   System.out.println("Digite o novo cpf do aluno:");
+	    			   aluno.editarAlunoCpf(a, teclado.next());
+	    			   System.out.println("Alteração feita com sucesso! ");
+	    			   break;
+	    			   
+	    			   case 3: 
+	    			   System.out.println("Digite o nova matrícula do aluno:");
+	    			   aluno.editarAlunoMatri(a, teclado.next());
+	    			   System.out.println("Alteração feita com sucesso! ");
+	    			   break;
+	    			   
+	    			   case 4: 
+		    		   System.out.println("Digite o novo endereço do aluno:");
+		    		   aluno.editarAlunoEnde(a, teclado.next());
+		    		   System.out.println("Alteração feita com sucesso! ");
+		    		   break;
+		    		   
+	    			   case 5:
+	    			   System.out.println("Digite o novo email do aluno:");
+	    			   aluno.editarAlunoEmail(a, teclado.next());
+	    			   System.out.println("Alteração feita com sucesso! ");
+	    			   break;
+	    			   
+	    			   case 6:
+		    		   System.out.println("Digite o novo telefone do aluno:");
+		    		   aluno.editarAlunoTel(a, teclado.next());
+		    		   System.out.println("Alteração feita com sucesso! ");
+		    		   break;
+		    		   
+	    	/*switch editar aluno*/}
+	       } 
+	       opsEditarAluno = -1;
+		    		     break;
+		   }	   
 	    		   case 4:
 	    			     System.out.println("================ EXCLUIR ================");
 	    				 System.out.println("Digite a matrícula do aluno :" );
